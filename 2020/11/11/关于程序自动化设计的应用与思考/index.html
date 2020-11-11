@@ -442,7 +442,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-10-26
+                    2020-11-11
                 </div>
                 
 
@@ -458,16 +458,45 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="小黑的第一篇Blog：Markdown基本语法"><a href="#小黑的第一篇Blog：Markdown基本语法" class="headerlink" title="小黑的第一篇Blog：Markdown基本语法"></a>小黑的第一篇Blog：<strong>Markdown基本语法</strong></h1><p>Markdown是一种轻量化的语言，易于掌握。就我个人的理解，它与HTML语言有一定的相似性。</p>
+                <h1 id="关于程序自动化设计的应用与思考"><a href="#关于程序自动化设计的应用与思考" class="headerlink" title="关于程序自动化设计的应用与思考"></a>关于程序自动化设计的应用与思考</h1><p>自动化测试<em>是把以人为驱动的测试行为转化为机器执行的一种过程。通常，在设计了测试用例并通过评审之后，由测试人员根据测试用例中描述的规程一步步执行测试，得到实际结果与期望结果的比较。在此过程中，为了节省人力、时间或硬件资源，提高测试效率，便引入了自动化测试的概念</em>。<br>                    ————“自动化测试”的概念</p>
+<p>在我们的导学课上，我们了解到了关于自动化测试的基本概念，用我自己的话来说，就是自己写个程序，让程序去与待测程序交互，以达到自动化测试的目的。上课的时候老师也举了个简单的例子，用自动化测试来检验三角函数程序的正确性。</p>
+<p>基本思路是利用三角函数的泰勒级数展开来拟合三角函数的图像从而达到拟合出对应三角函数值的目的，其中测试函数以sin为例：</p>
+<pre><code>    double test_function (double n)
+    &#123;
+        double ans=0,pow_n=n;
+        double temp=1;
+        double step_plus=1;
+        for(double i=2;i&lt;=27;i=i+2)
+        &#123;
+            ans=ans+pow_n*temp/step_plus;
+            temp=-1*(temp);
+            step_plus=step_plus*i*(i+1);
+            pow_n=pow_n*n*n;
+        &#125;
+        return ans;
+    &#125;</code></pre>
 <hr>
-<ul>
-<li><h2 id="Markdown的标题语法"><a href="#Markdown的标题语法" class="headerlink" title="Markdown的标题语法"></a>Markdown的标题语法</h2><pre><code>  # &lt;markdown&gt;为一级标题
-  ## &lt;markdown&gt;为二级标题
-  ### &lt;markdown&gt;为三级标题
-  ……以此类推</code></pre>
-  效果如下：<h1 id="markdown为一级标题"><a href="#markdown为一级标题" class="headerlink" title="markdown为一级标题"></a>markdown为一级标题</h1><h2 id="markdown为二级标题"><a href="#markdown为二级标题" class="headerlink" title="markdown为二级标题"></a>markdown为二级标题</h2><h3 id="markdown为三级标题"><a href="#markdown为三级标题" class="headerlink" title="markdown为三级标题"></a>markdown为三级标题</h3></li>
-</ul>
+<pre><code>    test_number=rand();
+    test_number=number_simplify(test_number);
+    printf(&quot;%lf %lf\n&quot;,test_function(test_number),sin(test_number));
+    if(abs(test_function(test_number)-sin(test_number))&lt;=0.000001)
+        right_number++;
+    else
+        wrong_number++;</code></pre>
 <hr>
+<p>利用srand和rand函数生成随机数，通过将其带入函数并求标准库的绝对差值并与设置精度相比较，达到测试的目的。   </p>
+<p>其实这种思想应用的领域非常广泛，通过很大数目的随机数的尝试，来达到一个“遍历”的目的。以蒙特卡洛算法为例，当使用蒙特卡罗法计算函数积分时，实际上也是通过大量的随机数来模拟一个整个图像被“遍历”的过程，而后统计图像下方的点，达到计算其积分值的目的。</p>
+<p>其中有一个词很重要——“遍历”。什么是遍历？这个名词会涉及到关于算法方面的一些知识，在此我们不展开来谈，但是假如说我们在平时学习编程的过程中，大家在使用OJ系统检查自己程序的错误的时候，应该会注意到测试点。道理与上面的相似，测试点里就是一个甚至一组数据，将其输入程序，同时检查程序的输出值是否与预定计算好的正确答案一致。这样真的可以完全说明程序没有bug么？并不能。甚至会有一些实在是没有办法的时候，大家会使用特殊的办法来得到测试点的数据，直接计算答案来骗分。这就是自动化测试，它并不能保证程序完全的正确，但是至少，它能在节省了极大的人力物力的情况下保证这个程序在一定程度上是正确的，因为你永远无法做到对数据的“遍历”。</p>
+<p>其中有一个词很重要——“遍历”。什么是遍历？这个名词会涉及到关于算法方面的一些知识，在此我们不展开来谈，但是假如说我们在平时学习编程的过程中，大家在使用OJ系统检查自己程序的错误的时候，应该会注意到测试点。道理与上面的相似，测试点里就是一个甚至一组数据，将其输入程序，同时检查程序的输出值是否与预定计算好的正确答案一致。这样真的可以完全说明程序没有bug么？并不能。甚至会有一些实在是没有办法的时候，大家会使用特殊的办法来得到测试点的数据，直接计算答案来骗分。这就是自动化测试，它并不能保证程序完全的正确，但是至少，它能在节省了极大的人力物力的情况下保证这个程序在一定程度上是正确的，因为你永远无法做到对数据的“遍历”。</p>
+<p>你可能会说，那自动化测试有什么用啊，还不如我自己来debug。但是，在电脑超强算力的碾压之下，自动化测试会使测试时间大大缩短。所以，这个时候，你就需要做出一个选择：是花时间费时费力再写一个程序来测试？还是自己直接现在开始人工测试？</p>
+<p>对于上面那种简单的程序来说，一般人工测试就能解决，并不需要花费更多的时间去写一个更复杂的测试程序，但是如果是对于一个体量巨大的软件来说，就需要经过深思熟虑来评估一下了。</p>
+<p>同时，对于一些程序或软件来说，不仅仅会有数据上的测试，还会有关于人机交互方面的测试。如果在出现多个子菜单、子选项的情况下，想要人工测试所花费的时间就会大大增加。同样，对于这种程序，实际上就是“迷宫”，每一个节点就代表一个路口，这个节点有多少进入、多少输出都是子选项，代表了这个路口有多少入口，多少出口，迷宫里面道路四通八达，而你要做的，就是跑遍这个迷宫的所有角落，寻找迷宫中的宝藏（bug）。</p>
+<p>说到这里，你应该已经明白了自动化测试是如何运作的。这篇文章并不会继续讨论下去自动化测试的更为深层的、专业的知识，而是表达在我对于这些知识的了解之后，我自己的一些想法。</p>
+<p>2017年5月，阿尔法围棋3:0战胜了世界排名第一的围棋冠军柯洁，引发热议。阿尔法围棋用到了很多新技术，如神经网络、深度学习、蒙特卡洛树搜索法等。好像这些跟我们上面提到的有些一致的地方呢。事实上，AlphaGo的强大之处，就在于它可以自我学习，它能够做到自己不断对自己的程序、算法进行“自动化测试”，并将测试后得到的结果用于优化自己的程序与算法，使自己的能力不断提升，美其名曰：“深度学习”。<em>更为厉害的是，随着训练的深入，阿尔法围棋团队发现，AlphaGoZero还独立发现了游戏规则，并走出了新策略，为围棋这项古老游戏带来了新的见解。</em>实际上，这不就是现在化的自动化测试，发现了围棋流传至今人类都没有注意到的“bug”么？</p>
+<p>自动化测试的思想和实现现在仍然是值得我们探索与发现的前沿，在这堂导学课后，也使我思考了很多，以上便是我总结出的一些自己的看法。</p>
+<hr>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p>①    引用自百度百科——“自动化测试”词条：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">https://baike.baidu.com/item/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95</a></p>
+<p>②    引用自百度百科——“阿尔法围棋”词条：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E9%98%BF%E5%B0%94%E6%B3%95%E5%9B%B4%E6%A3%8B/19319610">https://baike.baidu.com/item/%E9%98%BF%E5%B0%94%E6%B3%95%E5%9B%B4%E6%A3%8B/19319610</a></p>
 
             </div>
             <hr/>
@@ -493,7 +522,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2020/10/26/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">http://example.com/2020/10/26/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</a>
+                    <a href="http://example.com/2020/11/11/%E5%85%B3%E4%BA%8E%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%8A%A8%E5%8C%96%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E6%80%9D%E8%80%83/">http://example.com/2020/11/11/%E5%85%B3%E4%BA%8E%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%8A%A8%E5%8C%96%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E6%80%9D%E8%80%83/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -570,9 +599,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/11/11/%E5%85%B3%E4%BA%8E%E7%A8%8B%E5%BA%8F%E8%87%AA%E5%8A%A8%E5%8C%96%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%8E%E6%80%9D%E8%80%83/">
                     <div class="card-image">
@@ -590,9 +620,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -601,6 +631,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -611,24 +642,28 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/10/22/hello-world/">
+                <a href="/2020/10/26/Markdown%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            小黑的第一篇Blog：Markdown基本语法Markdown是一种轻量化的语言，易于掌握。就我个人的理解，它与HTML语言有一定的相似性。
+
+
+Markdown的标题语法  # &lt;markdown&gt;为一级标题
+  ## &lt
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-26
                             </span>
                         <span class="publish-author">
                             
