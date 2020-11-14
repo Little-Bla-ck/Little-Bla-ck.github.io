@@ -461,28 +461,9 @@
                 <h1 id="关于程序自动化设计的应用与思考"><a href="#关于程序自动化设计的应用与思考" class="headerlink" title="关于程序自动化设计的应用与思考"></a>关于程序自动化设计的应用与思考</h1><p>自动化测试<em>是把以人为驱动的测试行为转化为机器执行的一种过程。通常，在设计了测试用例并通过评审之后，由测试人员根据测试用例中描述的规程一步步执行测试，得到实际结果与期望结果的比较。在此过程中，为了节省人力、时间或硬件资源，提高测试效率，便引入了自动化测试的概念</em>。<br>                    ————“自动化测试”的概念</p>
 <p>在我们的导学课上，我们了解到了关于自动化测试的基本概念，用我自己的话来说，就是自己写个程序，让程序去与待测程序交互，以达到自动化测试的目的。上课的时候老师也举了个简单的例子，用自动化测试来检验三角函数程序的正确性。</p>
 <p>基本思路是利用三角函数的泰勒级数展开来拟合三角函数的图像从而达到拟合出对应三角函数值的目的，其中测试函数以sin为例：</p>
-<pre><code>    double test_function (double n)
-    &#123;
-        double ans=0,pow_n=n;
-        double temp=1;
-        double step_plus=1;
-        for(double i=2;i&lt;=27;i=i+2)
-        &#123;
-            ans=ans+pow_n*temp/step_plus;
-            temp=-1*(temp);
-            step_plus=step_plus*i*(i+1);
-            pow_n=pow_n*n*n;
-        &#125;
-        return ans;
-    &#125;</code></pre>
+<p>‘’’C<br>        double test_function (double n)<br>        {<br>            double ans=0,pow_n=n;<br>            double temp=1;<br>            double step_plus=1;<br>            for(double i=2;i&lt;=27;i=i+2)<br>            {<br>                ans=ans+pow_n<em>temp/step_plus;<br>                temp=-1</em>(temp);<br>                step_plus=step_plus<em>i</em>(i+1);<br>                pow_n=pow_n<em>n</em>n;<br>            }<br>            return ans;<br>        }<br>‘’’</p>
 <hr>
-<pre><code>    test_number=rand();
-    test_number=number_simplify(test_number);
-    printf(&quot;%lf %lf\n&quot;,test_function(test_number),sin(test_number));
-    if(abs(test_function(test_number)-sin(test_number))&lt;=0.000001)
-        right_number++;
-    else
-        wrong_number++;</code></pre>
+<p>‘’’C<br>        test_number=rand();<br>        test_number=number_simplify(test_number);<br>        printf(“%lf %lf\n”,test_function(test_number),sin(test_number));<br>        if(abs(test_function(test_number)-sin(test_number))&lt;=0.000001)<br>            right_number++;<br>        else<br>            wrong_number++;<br>‘’’</p>
 <hr>
 <p>利用srand和rand函数生成随机数，通过将其带入函数并求标准库的绝对差值并与设置精度相比较，达到测试的目的。   </p>
 <p>其实这种思想应用的领域非常广泛，通过很大数目的随机数的尝试，来达到一个“遍历”的目的。以蒙特卡洛算法为例，当使用蒙特卡罗法计算函数积分时，实际上也是通过大量的随机数来模拟一个整个图像被“遍历”的过程，而后统计图像下方的点，达到计算其积分值的目的。</p>
