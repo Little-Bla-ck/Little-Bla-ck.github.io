@@ -1,0 +1,522 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>软件工程专业技术分享 | 软件工程专业技术分享</title><meta name="author" content="Little-Bla-ck"><meta name="copyright" content="Little-Bla-ck"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Hook Description    useActionPending Add a pending indicator to any async function   useBoolean Methods to control a boolean state   useSwitch More convenient way to use boolean state   useToggle M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件工程专业技术分享">
+<meta property="og:url" content="http://www.littleblack.cc/2023/02/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/hjuse/index.html">
+<meta property="og:site_name" content="软件工程专业技术分享">
+<meta property="og:description" content="Hook Description    useActionPending Add a pending indicator to any async function   useBoolean Methods to control a boolean state   useSwitch More convenient way to use boolean state   useToggle M">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2023-02-05T14:52:21.566Z">
+<meta property="article:modified_time" content="2023-02-05T14:52:21.566Z">
+<meta property="article:author" content="Little-Bla-ck">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/icon.jpg"><link rel="canonical" href="http://www.littleblack.cc/2023/02/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/hjuse/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '软件工程专业技术分享',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-02-05 22:52:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">软件工程专业技术分享</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-05T14:52:21.566Z" title="发表于 2023-02-05 22:52:21">2023-02-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-05T14:52:21.566Z" title="更新于 2023-02-05 22:52:21">2023-02-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">583</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><table>
+<thead>
+<tr>
+<th>Hook</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>useActionPending</td>
+<td>Add a pending indicator to any async function</td>
+</tr>
+<tr>
+<td>useBoolean</td>
+<td>Methods to control a boolean state</td>
+</tr>
+<tr>
+<td>useSwitch</td>
+<td>More convenient way to use boolean state</td>
+</tr>
+<tr>
+<td>useToggle</td>
+<td>More convenient way to toggle boolean state or setState directly</td>
+</tr>
+<tr>
+<td>useClickOutside</td>
+<td>Trigger callback when clicks outside a specific element</td>
+</tr>
+<tr>
+<td>useArray</td>
+<td>Methods to control array state</td>
+</tr>
+<tr>
+<td>useSet</td>
+<td>Methods to control <code>Set</code> state</td>
+</tr>
+<tr>
+<td>useMap</td>
+<td>Methods to control <code>Map</code> state</td>
+</tr>
+<tr>
+<td>useDebouncedEffect</td>
+<td>Debounce an effect on value change</td>
+</tr>
+<tr>
+<td>useDebouncedValue</td>
+<td>Debounce a value change</td>
+</tr>
+<tr>
+<td>useDebouncedCallback</td>
+<td>Debounce a callback function</td>
+</tr>
+<tr>
+<td>useRenderTimes</td>
+<td>Return times of component rendered</td>
+</tr>
+<tr>
+<td>useChangeTimes</td>
+<td>Return times of a value changed</td>
+</tr>
+<tr>
+<td>useUpdateCause</td>
+<td>Observe the cause of component update</td>
+</tr>
+<tr>
+<td>useDerivedState</td>
+<td>Derive a state from external prop</td>
+</tr>
+<tr>
+<td>useDocumentEvent</td>
+<td>Add listeners to <code>document</code>‘s event</td>
+</tr>
+<tr>
+<td>useDocumentTitle</td>
+<td>Change <code>document.title</code></td>
+</tr>
+<tr>
+<td>useEffectRef</td>
+<td>More reliable function based ref with clean-up ability</td>
+</tr>
+<tr>
+<td>useElementResize</td>
+<td>Trigger callback when element resize</td>
+</tr>
+<tr>
+<td>useElementSize</td>
+<td>Return element’s size</td>
+</tr>
+<tr>
+<td>useHover</td>
+<td>Observe mouse enter and leave to element</td>
+</tr>
+<tr>
+<td>useImmerReducer</td>
+<td>A <code>useReducer</code> with immer support <strong>(deprecated)</strong></td>
+</tr>
+<tr>
+<td>useImmerState</td>
+<td>A <code>useState</code> with immer support <strong>(deprecated)</strong></td>
+</tr>
+<tr>
+<td>useInfiniteScroll</td>
+<td>Encapsulate methods and props to implement infinite scroll</td>
+</tr>
+<tr>
+<td>useInputValue</td>
+<td>Bound a value and it’s change handler to input element</td>
+</tr>
+<tr>
+<td>useOnScreenCallback</td>
+<td>Trigger callback when element intersects with viewport</td>
+</tr>
+<tr>
+<td>useOnScreen</td>
+<td>Return whether element intesects with viewport</td>
+</tr>
+<tr>
+<td>useOnScreenLazyValue</td>
+<td>Lazy initialize a value when it intersects with viewport</td>
+</tr>
+<tr>
+<td>useLocalStorage</td>
+<td>Visit and update local storage</td>
+</tr>
+<tr>
+<td>useMedia</td>
+<td>Return whether a media query is currently matched</td>
+</tr>
+<tr>
+<td>usePreferDarkMode</td>
+<td>Return whether user prefers dark color scheme</td>
+</tr>
+<tr>
+<td>useMergedRef</td>
+<td>Merge multiple ref into a single one</td>
+</tr>
+<tr>
+<td>useMethodsNative</td>
+<td>Wrap methods around a state</td>
+</tr>
+<tr>
+<td>useMethodsExtensionNative</td>
+<td>Wrap methods around a <code>setState</code> function</td>
+</tr>
+<tr>
+<td>useMethods</td>
+<td><code>useMethodsNative</code> with immer support</td>
+</tr>
+<tr>
+<td>useMethodsExtension</td>
+<td><code>useMethodsNative</code> with immer support</td>
+</tr>
+<tr>
+<td>useOnLine</td>
+<td>Return user is current online of offline</td>
+</tr>
+<tr>
+<td>useCounter</td>
+<td>Methods to control a number state with increment and decrement</td>
+</tr>
+<tr>
+<td>usePerformanceTiming</td>
+<td>Collect performance data and send to callback</td>
+</tr>
+<tr>
+<td>useLayoutTiming</td>
+<td>Collect timings of a component’s layout</td>
+</tr>
+<tr>
+<td>usePoll</td>
+<td>Periodically trigger an async function and manage its response</td>
+</tr>
+<tr>
+<td>usePreviousValue</td>
+<td>Get previous version of a value</td>
+</tr>
+<tr>
+<td>usePreviousEquals</td>
+<td>Return whether a value is equals to that on previous render</td>
+</tr>
+<tr>
+<td>useOriginalCopy</td>
+<td>Track back a value to get a reference equals copy when content are identical</td>
+</tr>
+<tr>
+<td>useOriginalDeepCopy</td>
+<td><code>useOriginalCopy</code> with deep equal support</td>
+</tr>
+<tr>
+<td>useRequestCallback</td>
+<td>Return a function to trigger request with its data, error and pending state</td>
+</tr>
+<tr>
+<td>useRequest</td>
+<td>Trigger request on params change and return its data, error and pending state</td>
+</tr>
+<tr>
+<td>useScript</td>
+<td>Load an external script</td>
+</tr>
+<tr>
+<td>useScriptSuspense</td>
+<td>Load an external script with suspense</td>
+</tr>
+<tr>
+<td>useScrollIntoView</td>
+<td>Scroll an element into viewport</td>
+</tr>
+<tr>
+<td>useScrollLock</td>
+<td>Lock scroll of document</td>
+</tr>
+<tr>
+<td>useScrollPosition</td>
+<td>Get current scroll top and left</td>
+</tr>
+<tr>
+<td>useScrollTop</td>
+<td>Get current scroll top</td>
+</tr>
+<tr>
+<td>useScrollLeft</td>
+<td>Get current scroll left</td>
+</tr>
+<tr>
+<td>useSelection</td>
+<td>Manage state to work with list selection, including multiple and range selection</td>
+</tr>
+<tr>
+<td>useSnapshotState</td>
+<td>Get a state with undo and redo support</td>
+</tr>
+<tr>
+<td>useTimeout</td>
+<td>Trigger callback after specified time</td>
+</tr>
+<tr>
+<td>useInterval</td>
+<td>Trigger callback periodically</td>
+</tr>
+<tr>
+<td>useStableInterval</td>
+<td><code>useInterval</code> but counts ellapsed time of function execution, both sync and async</td>
+</tr>
+<tr>
+<td>useTransitionState</td>
+<td>A state which will revert back to its initial value when updated</td>
+</tr>
+<tr>
+<td>useForceUpdate</td>
+<td>Force update a component</td>
+</tr>
+<tr>
+<td>useWindowSize</td>
+<td>Get the size of window</td>
+</tr>
+<tr>
+<td>useOptimisticFactory</td>
+<td>Infrastructure hook to create optimistic state</td>
+</tr>
+<tr>
+<td>useOptimisticState</td>
+<td>Optimistic state</td>
+</tr>
+<tr>
+<td>useOptimisticTask</td>
+<td>Wrap async task to have optimistic result</td>
+</tr>
+<tr>
+<td>useUserMedia</td>
+<td>Open video and audio streams in browser</td>
+</tr>
+<tr>
+<td>useNavigate</td>
+<td>Get a function to navigate to any location</td>
+</tr>
+<tr>
+<td>useLocationState</td>
+<td>Wrap location’s state into a react state</td>
+</tr>
+<tr>
+<td>useSearchParams</td>
+<td>Parse search string to <code>URLSearchParams</code> as well as a function to update search</td>
+</tr>
+<tr>
+<td>useSearchParam</td>
+<td>Get a single search param</td>
+</tr>
+<tr>
+<td>useSearchParamAll</td>
+<td>Get a single search param as array</td>
+</tr>
+<tr>
+<td>useUpdateSearchParams</td>
+<td>Get a function to update search params</td>
+</tr>
+<tr>
+<td>useSearchParamState</td>
+<td>Wrap a single search param into a react state</td>
+</tr>
+<tr>
+<td>useWebSocket</td>
+<td>Create a web socket connecting to specified url</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.littleblack.cc">Little-Bla-ck</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.littleblack.cc/2023/02/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/hjuse/">http://www.littleblack.cc/2023/02/05/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/hjuse/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.littleblack.cc" target="_blank">软件工程专业技术分享</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/ShareJS/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/ShareJS/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/"><img class="prev-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2022/11/20/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%887%EF%BC%89/"><img class="next-cover" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">前端学习踩坑（7）——大佬源码学习笔记</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Little-Bla-ck</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">8</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Little-Bla-ck/"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Little-bla-ck" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1173198173@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">南京大学软件工程专业大三在读</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E7%94%BB%E5%B8%83/" title="无题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E7%94%BB%E5%B8%83/" title="无题">无题</a><time datetime="2023-02-16T15:09:37.674Z" title="发表于 2023-02-16 23:09:37">2023-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E8%AF%84%E4%BC%B0%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/" title="无题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E8%AF%84%E4%BC%B0%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><time datetime="2023-02-16T15:09:37.672Z" title="发表于 2023-02-16 23:09:37">2023-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%85%B8%E5%9E%8B%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/" title="无题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%85%B8%E5%9E%8B%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F/" title="无题">无题</a><time datetime="2023-02-16T15:09:37.669Z" title="发表于 2023-02-16 23:09:37">2023-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%AF%BC%E8%AE%BA/" title="无题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%AF%BC%E8%AE%BA/" title="无题">无题</a><time datetime="2023-02-16T15:09:37.666Z" title="发表于 2023-02-16 23:09:37">2023-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/" title="无题"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2023/02/16/%E9%9C%80%E6%B1%82%E4%B8%8E%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/%E5%95%86%E4%B8%9A%E6%A8%A1%E5%BC%8F%E8%AE%BE%E8%AE%A1/" title="无题">无题</a><time datetime="2023-02-16T15:09:37.662Z" title="发表于 2023-02-16 23:09:37">2023-02-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>宁ICP备：2022000187号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = '/pluginsSrc/mathjax/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><link rel="stylesheet" type="text/css" href="/pluginsSrc/katex/dist/katex.min.css"><script src="/pluginsSrc/katex/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="/pluginsSrc/katex/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('/pluginsSrc/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="/pluginsSrc/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
