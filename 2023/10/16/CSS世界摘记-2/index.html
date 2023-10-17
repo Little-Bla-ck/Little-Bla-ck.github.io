@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>CSS世界摘记-2 | 软件工程专业技术分享</title><meta name="keywords" content="前端学习"><meta name="author" content="Little-Bla-ck"><meta name="copyright" content="Little-Bla-ck"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="务必了解的 CSS 世界的专业术语本章节主要涉及CSS属性、值、关键字、变量、选择器等，在此不多做赘述，仅讲解部分特殊内容。 未定义行为CSS直接中有web的标准来约束元素的行为，但是标准无法面面俱到，所以标准未规定的场景只能由各大浏览器厂家自行实现，这些场景就是未定义行为。具体表现为在部分场景下，不同浏览器的表现不一致。 流、元素与基本尺寸按照 W3C 的 CSS 规范区分，这里应该分为“块级元">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS世界摘记-2">
+<meta property="og:url" content="http://www.littleblack.cc/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-2/index.html">
+<meta property="og:site_name" content="软件工程专业技术分享">
+<meta property="og:description" content="务必了解的 CSS 世界的专业术语本章节主要涉及CSS属性、值、关键字、变量、选择器等，在此不多做赘述，仅讲解部分特殊内容。 未定义行为CSS直接中有web的标准来约束元素的行为，但是标准无法面面俱到，所以标准未规定的场景只能由各大浏览器厂家自行实现，这些场景就是未定义行为。具体表现为在部分场景下，不同浏览器的表现不一致。 流、元素与基本尺寸按照 W3C 的 CSS 规范区分，这里应该分为“块级元">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png">
+<meta property="article:published_time" content="2023-10-16T03:37:48.000Z">
+<meta property="article:modified_time" content="2023-10-17T11:26:47.495Z">
+<meta property="article:author" content="Little-Bla-ck">
+<meta property="article:tag" content="前端学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png"><link rel="shortcut icon" href="/img/icon.jpg"><link rel="canonical" href="http://www.littleblack.cc/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: '/pluginsSrc/flickr-justified-gallery/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CSS世界摘记-2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-17 19:26:47'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/icon.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">软件工程专业技术分享</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CSS世界摘记-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-16T03:37:48.000Z" title="发表于 2023-10-16 11:37:48">2023-10-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-10-17T11:26:47.495Z" title="更新于 2023-10-17 19:26:47">2023-10-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="CSS世界摘记-2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="务必了解的-CSS-世界的专业术语"><a href="#务必了解的-CSS-世界的专业术语" class="headerlink" title="务必了解的 CSS 世界的专业术语"></a>务必了解的 CSS 世界的专业术语</h2><p>本章节主要涉及CSS属性、值、关键字、变量、选择器等，在此不多做赘述，仅讲解部分特殊内容。</p>
+<h3 id="未定义行为"><a href="#未定义行为" class="headerlink" title="未定义行为"></a>未定义行为</h3><p>CSS直接中有web的标准来约束元素的行为，但是标准无法面面俱到，所以标准未规定的场景只能由各大浏览器厂家自行实现，这些场景就是未定义行为。具体表现为在部分场景下，不同浏览器的表现不一致。</p>
+<h2 id="流、元素与基本尺寸"><a href="#流、元素与基本尺寸" class="headerlink" title="流、元素与基本尺寸"></a>流、元素与基本尺寸</h2><p>按照 W3C 的 CSS 规范区分，这里应该分为“块级元素”和“内联级元素” （inline-level element）。但是，在 W3C 的 HTML4 规范中，已经明确把 HTML 元素分成了 “块级元素”和“内联元素”，后续”内联级元素“和”内联元素“都将以”内联元素“称呼。</p>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><p>常见的块级元素有<code>&lt;div&gt;</code>、<code>&lt;li&gt;</code>、<code>&lt;table&gt;</code>。</p>
+<p><strong>注意，块级元素并不等于<code>display: block</code>的元素。</strong>例如，<code>&lt;li&gt;</code>的<code>display</code>为<code>list-item</code>，<code>&lt;table&gt;</code>的<code>display</code>为<code>table</code>。</p>
+<h3 id="“内外盒子”"><a href="#“内外盒子”" class="headerlink" title="“内外盒子”"></a>“内外盒子”</h3><h4 id="list-item"><a href="#list-item" class="headerlink" title="list-item"></a>list-item</h4><p>最开始，只有<strong>块级盒子</strong>和<strong>内联盒子</strong>，但是这个模型无法解释<code>list-item</code>元素为什么会出现项目符号。</p>
+<p>所以，添加了一个<strong>标记盒子</strong>，用于放置圆点、数字等项目符号，同时为了兼容上面的描述，还需要有一个<strong>主块级盒子</strong>。</p>
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/%E6%9C%AA%E6%A0%87%E9%A2%98-1.png" alt="未标题-1"></p>
+<h4 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h4><p>这个标签同时具有inline和block的两种特性，上述的模型也无法解释。为了便于理解，我们可以认为每个元素都有至少两个盒子，外在盒子和内在盒子。外在盒子负责流动性的管理（一行显示、换行显示），内在盒子负责元素的宽高、内容呈现。</p>
+<p>我们将内在盒子换成更专业的名称——<strong>容器盒子</strong>。</p>
+<p>举个例子：</p>
+<ul>
+<li><code>display: block</code>的元素是由<strong>外在的块级盒子</strong>和<strong>内在的块级容器盒子</strong>构成的。</li>
+<li><code>display: inline-block</code>的元素是由<strong>外在的内联盒子</strong>和<strong>内在的块级容器盒子</strong>构成的。</li>
+<li><code>display: inline</code>的元素是由<strong>外在的内联盒子</strong>和<strong>内在的内联容器盒子</strong>构成的。</li>
+</ul>
+<h3 id="width和height作用在哪里？"><a href="#width和height作用在哪里？" class="headerlink" title="width和height作用在哪里？"></a>width和height作用在哪里？</h3><h4 id="width"><a href="#width" class="headerlink" title="width"></a>width</h4><h5 id="width的初值：auto"><a href="#width的初值：auto" class="headerlink" title="width的初值：auto"></a>width的初值：auto</h5><p>在本菜鸟编写样式代码中，经常会出现宽度不符合预期的情况，很多时候并不知道为什么，只能加些属性调试调试，既浪费时间，也增加了不少的冗余代码，下面我们将讨论width的<code>auto</code>值。</p>
+<p><code>auto</code>至少包含了四种不同的宽度表现：</p>
+<ol>
+<li><strong>充分利用空间</strong>，比如<code>&lt;div&gt;</code>、<code>&lt;p&gt;</code>等，表现为width： 100%，叫做<code>fill-available</code>；</li>
+<li><strong>收缩与包裹</strong>，比如浮动、绝对定位、inline-block、table元素等，叫做<code>shrink-to-fit</code>，与CSS3中的fit-content一致；</li>
+<li><strong>收缩到最小</strong>，比如table-layout为auto的表格中，叫做<code>minimum content width</code>，与CSS3中的min-content一致；</li>
+<li><strong>超出容器限制</strong>，比如很长的连续英文或数字，或设置了<code>white-space: nowrap</code>，与CSS3中的max-content一致；</li>
+</ol>
+<p>​    <img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017155853132.png" alt="image-20231017155853132"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 200px&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>这是一个P标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">&quot;white-space: nowrap&quot;</span>&gt;</span>这是一个设置了禁止换行的很长很长很长很长很长很长很长很长很长很长很长很长很长的P标签<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: absolute&quot;</span>&gt;</span>这是一个浮动的div标签<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">    <span class="selector-tag">div</span>, <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="attribute">border</span>: <span class="number">#1a1a1a</span> solid <span class="number">1px</span>;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="外部尺寸与流体特性"><a href="#外部尺寸与流体特性" class="headerlink" title="外部尺寸与流体特性"></a>外部尺寸与流体特性</h5><p>上述的auto中的第一条<strong>充分利用空间</strong>就是<strong>外部尺寸</strong>。</p>
+<p>了解了这些后，我们可以尽量避免代码中的width的显式设置，利用流的特性来实现样式的排布，适配性更高且代码更好维护。</p>
+<p>在页面中随便扔一个元素，其尺寸表现就会和这水流 一样铺满容器。这就是 block 容器的流特性。这种特性，所有浏览器的表现都是一致的。</p>
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017160915329.png" alt="image-20231017160915329"></p>
+<h5 id="内部尺寸与流体特性"><a href="#内部尺寸与流体特性" class="headerlink" title="内部尺寸与流体特性"></a>内部尺寸与流体特性</h5><p>上述的auto中的第二、三、四条都是<strong>内部尺寸</strong>，下面将一一对应的介绍：</p>
+<ol>
+<li>包裹性：</li>
+</ol>
+<p>​    这里用<code>&lt;button&gt;</code>标签来理解：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">	<span class="selector-class">.box</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="attribute">width</span>: <span class="number">240px</span>;</span></span><br><span class="line"><span class="css">        <span class="attribute">margin</span>: <span class="number">20px</span> auto;</span></span><br><span class="line"><span class="css">    &#125;</span></span><br><span class="line"><span class="css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017161846449.png" alt="image-20231017161846449"></p>
+<p>可以看到，当宽度小于父容器时，按钮的宽度会包裹住内容。</p>
+<p>当宽度大于父容器时，按钮会自动换行，并不会超出父容器的宽度。</p>
+<p>在开发中有以下场景可以用到这个特性：</p>
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017162321956.png" alt="image-20231017162321956"></p>
+<p>此时只需：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">    <span class="attribute">text-align</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>首选最小宽度：</li>
+</ol>
+<p>元素的最适合的最小宽度。</p>
+<ul>
+<li>东亚文字（如中文）的最小宽度为每个汉字的宽度；</li>
+<li>西亚文字最小宽度由特定的连续的英文字符单元决定；具体可以使用white-space、word-break等属性进行设置；</li>
+<li>类似图片这样的替换元素的最小宽度就是该元素内容本身的宽度；</li>
+</ul>
+<ol start="3">
+<li>最大宽度：</li>
+</ol>
+<p>最大宽度就是元素可以有的最大宽度。如果内部没有块级元素或者块级元素没有设定宽度值，则“最大宽度”实际上是最大的连 续内联盒子的宽度。</p>
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017185308986.png" alt="image-20231017185308986"></p>
+<h5 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h5><p>上面我们讨论到元素的宽高是由<strong>容器盒子</strong>决定的，而容器盒子的结果就是著名的<strong>盒模型</strong>。</p>
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017190639474.png" alt="image-20231017190639474"></p>
+<p>里面对应content-box、padding-box、border-box和margin-box（？）。</p>
+<p>但是实际上并没有margin-box，因为没有任何需要用到的场景。<strong>margin的背景永远是透明的</strong>。</p>
+<p>基于以上的前置知识，我们可以推测出，<strong>width是作用在content box上的。</strong>这样的设定可能带来以下的问题：</p>
+<ol>
+<li>流动性丢失：如果 <code>width: auto</code>，则元素会如水流般充满整个容器，而一旦设定了 width 具体数值，则元素的流动性就会被阻断。</li>
+</ol>
+<p><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231017191652868.png" alt="image-20231017191652868"></p>
+<ol start="2">
+<li><p>使用起来有一定障碍，下面将介绍<strong>“宽度分离原则”</strong>。</p>
+<p>不能出现以下的组合：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123; <span class="attribute">width</span>: <span class="number">100px</span>; <span class="attribute">border</span>: <span class="number">1px</span> solid; &#125; </span><br><span class="line">或</span><br><span class="line"><span class="selector-class">.box</span> &#123; <span class="attribute">width</span>: <span class="number">100px</span>; <span class="attribute">padding</span>: <span class="number">20px</span>; &#125; </span><br></pre></td></tr></table></figure>
+
+<p>应将width独立占用一层标签，而padding、border、margin 利用流动性在内部自适应呈现。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.father</span> &#123; </span><br><span class="line"> <span class="attribute">width</span>: <span class="number">180px</span>; </span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.son</span> &#123; </span><br><span class="line"> <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">20px</span>; </span><br><span class="line"> <span class="attribute">padding</span>: <span class="number">20px</span>; </span><br><span class="line"> <span class="attribute">border</span>: <span class="number">1px</span> solid; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>更加便于维护，代码可读性更强。但也增加新的html节点，有一定的成本。</p>
+</li>
+</ol>
+<h4 id="height"><a href="#height" class="headerlink" title="height"></a>height</h4></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://www.littleblack.cc">Little-Bla-ck</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://www.littleblack.cc/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-2/">http://www.littleblack.cc/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://www.littleblack.cc" target="_blank">软件工程专业技术分享</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/">前端学习</a></div><div class="post_share"><div class="social-share" data-image="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/ShareJS/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/ShareJS/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-1/"><img class="next-cover" src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">CSS世界摘记(1)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/16/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%884%EF%BC%89/" title="前端学习踩坑（4）"><img class="cover" src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20220816193645532.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-16</div><div class="title">前端学习踩坑（4）</div></div></a></div><div><a href="/2022/07/17/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%881%EF%BC%89/" title="前端学习踩坑（1）"><img class="cover" src="http://image.littleblack.cc/blogimages/QQ%E5%9B%BE%E7%89%8720220717175253.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-17</div><div class="title">前端学习踩坑（1）</div></div></a></div><div><a href="/2022/07/20/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%882%EF%BC%89/" title="前端学习踩坑（2）"><img class="cover" src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20220726224722603.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-20</div><div class="title">前端学习踩坑（2）</div></div></a></div><div><a href="/2022/08/27/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%885%EF%BC%89/" title="前端学习踩坑（5）"><img class="cover" src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20220827120842096.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-27</div><div class="title">前端学习踩坑（5）</div></div></a></div><div><a href="/2022/11/19/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%886%EF%BC%89/" title="前端学习踩坑（6）——自定义组件（续）"><img class="cover" src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20221119142610822.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-11-19</div><div class="title">前端学习踩坑（6）——自定义组件（续）</div></div></a></div><div><a href="/2022/08/15/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%EF%BC%883%EF%BC%89/" title="前端学习踩坑（3）"><img class="cover" src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20220815004236052.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-15</div><div class="title">前端学习踩坑（3）</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/icon.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Little-Bla-ck</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">59</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Little-Bla-ck/"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Little-bla-ck" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/1173198173@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">南京大学软件工程专业大三在读</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A1%E5%BF%85%E4%BA%86%E8%A7%A3%E7%9A%84-CSS-%E4%B8%96%E7%95%8C%E7%9A%84%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD"><span class="toc-number">1.</span> <span class="toc-text">务必了解的 CSS 世界的专业术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E5%AE%9A%E4%B9%89%E8%A1%8C%E4%B8%BA"><span class="toc-number">1.1.</span> <span class="toc-text">未定义行为</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E3%80%81%E5%85%83%E7%B4%A0%E4%B8%8E%E5%9F%BA%E6%9C%AC%E5%B0%BA%E5%AF%B8"><span class="toc-number">2.</span> <span class="toc-text">流、元素与基本尺寸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-number">2.1.</span> <span class="toc-text">块级元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%80%9C%E5%86%85%E5%A4%96%E7%9B%92%E5%AD%90%E2%80%9D"><span class="toc-number">2.2.</span> <span class="toc-text">“内外盒子”</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#list-item"><span class="toc-number">2.2.1.</span> <span class="toc-text">list-item</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inline-block"><span class="toc-number">2.2.2.</span> <span class="toc-text">inline-block</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#width%E5%92%8Cheight%E4%BD%9C%E7%94%A8%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">width和height作用在哪里？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#width"><span class="toc-number">2.3.1.</span> <span class="toc-text">width</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#width%E7%9A%84%E5%88%9D%E5%80%BC%EF%BC%9Aauto"><span class="toc-number">2.3.1.1.</span> <span class="toc-text">width的初值：auto</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A4%96%E9%83%A8%E5%B0%BA%E5%AF%B8%E4%B8%8E%E6%B5%81%E4%BD%93%E7%89%B9%E6%80%A7"><span class="toc-number">2.3.1.2.</span> <span class="toc-text">外部尺寸与流体特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%B0%BA%E5%AF%B8%E4%B8%8E%E6%B5%81%E4%BD%93%E7%89%B9%E6%80%A7"><span class="toc-number">2.3.1.3.</span> <span class="toc-text">内部尺寸与流体特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BB%86%E8%8A%82"><span class="toc-number">2.3.1.4.</span> <span class="toc-text">细节</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#height"><span class="toc-number">2.3.2.</span> <span class="toc-text">height</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-2/" title="CSS世界摘记-2"><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS世界摘记-2"/></a><div class="content"><a class="title" href="/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-2/" title="CSS世界摘记-2">CSS世界摘记-2</a><time datetime="2023-10-16T03:37:48.000Z" title="发表于 2023-10-16 11:37:48">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-1/" title="CSS世界摘记(1)"><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/image-20231016110640578.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS世界摘记(1)"/></a><div class="content"><a class="title" href="/2023/10/16/CSS%E4%B8%96%E7%95%8C%E6%91%98%E8%AE%B0-1/" title="CSS世界摘记(1)">CSS世界摘记(1)</a><time datetime="2023-10-16T03:03:37.000Z" title="发表于 2023-10-16 11:03:37">2023-10-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/17/%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0%E5%A4%8D%E7%9B%98%E6%80%BB%E7%BB%93/" title="暑期实习复盘总结"><img src="https://littleblacksimagesbed.oss-cn-hangzhou.aliyuncs.com/blogimages/2603d7c7e74f6db6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="暑期实习复盘总结"/></a><div class="content"><a class="title" href="/2023/06/17/%E6%9A%91%E6%9C%9F%E5%AE%9E%E4%B9%A0%E5%A4%8D%E7%9B%98%E6%80%BB%E7%BB%93/" title="暑期实习复盘总结">暑期实习复盘总结</a><time datetime="2023-06-17T06:33:46.000Z" title="发表于 2023-06-17 14:33:46">2023-06-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/28/%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E7%BB%8F%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94%E7%BE%8E%E5%9B%A2%E5%88%B0%E5%BA%97%E4%B8%80%E9%9D%A2/" title="面经（10）————美团到店一面"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面经（10）————美团到店一面"/></a><div class="content"><a class="title" href="/2023/03/28/%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E7%BB%8F%EF%BC%8810%EF%BC%89%E2%80%94%E2%80%94%E7%BE%8E%E5%9B%A2%E5%88%B0%E5%BA%97%E4%B8%80%E9%9D%A2/" title="面经（10）————美团到店一面">面经（10）————美团到店一面</a><time datetime="2023-03-28T12:56:31.000Z" title="发表于 2023-03-28 20:56:31">2023-03-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/21/%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E7%BB%8F%EF%BC%888%EF%BC%89%E2%80%94%E2%80%94%E6%90%BA%E7%A8%8B%E4%BA%8C%E9%9D%A2/" title="面经（8）————携程二面"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面经（8）————携程二面"/></a><div class="content"><a class="title" href="/2023/03/21/%E9%9D%A2%E7%BB%8F/%E9%9D%A2%E7%BB%8F%EF%BC%888%EF%BC%89%E2%80%94%E2%80%94%E6%90%BA%E7%A8%8B%E4%BA%8C%E9%9D%A2/" title="面经（8）————携程二面">面经（8）————携程二面</a><time datetime="2023-03-21T12:56:31.000Z" title="发表于 2023-03-21 20:56:31">2023-03-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/"><span>宁ICP备2022000187号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/pluginsSrc/instant.page/instantpage.js" type="module"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = '/pluginsSrc/mathjax/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><link rel="stylesheet" type="text/css" href="/pluginsSrc/katex/dist/katex.min.css"><script src="/pluginsSrc/katex/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="/pluginsSrc/katex/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('/pluginsSrc/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="ribbon" src="/pluginsSrc/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
